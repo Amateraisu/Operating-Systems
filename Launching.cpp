@@ -1,7 +1,8 @@
 #include <thread>
 #include <iostream>
+using namespace std;
 
-void do_some_work() {
+void do_something() {
     cout << "DO SOMERTHING\n";
 }
 void do_something_else() {
@@ -18,6 +19,7 @@ public:
 int main() {
     background_task f;
 
-    std::thread my_thread(f);
+    std::thread my_thread(f); // copying here, we dont want that
+    std::thread my_thread2{background_task()};
     return 0;
 }
